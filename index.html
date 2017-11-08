@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>requestAjax</title>
+</head>
+<body>
+<div>
+	<h1>AJAX REQUESTS</h1>
+<button id="load" onclick = "sendAJAX()">Push me</button>
+ <ul id="ajax">
+</ul>
+ </div>
+ 
+	<script>
+		var xhr = new XMLHttpRequest();
+		// callback function
+		xhr.onreadystatechange = function () {
+			// check answer request passed
+			if(xhr.readyState === 4){
+			document.getElementById("ajax").innerHTML = xhr.responseText;
+		}
+	}
+	// open request
+	xhr.open('GET','https://next.json-generator.com/api/json/get/4y-5zFIAQ');	// GET - open data send; POST - login/password send example;
+	function sendAJAX (){
+	xhr.send();
+	document.getElementById('load').style.display = "none";
+
+	}
+	
+	</script>
+
+</body>
+</html>
